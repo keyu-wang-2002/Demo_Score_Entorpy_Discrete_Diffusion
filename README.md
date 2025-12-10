@@ -1,6 +1,6 @@
 # Score Entropy Discrete Diffusion
 
-This repo contains some simple demos for the paper [Discrete Diffusion Modeling by Estimating the Ratios of the Data Distribution](https://arxiv.org/abs/2310.16834), supporting Keyu Wang's presentation for SEDD at the seminar ` Machine Learning Methods for Scientific Discovery` at the University of Tuebingen in 25ws.
+This repo contains some simple demos for the paper [Discrete Diffusion Modeling by Estimating the Ratios of the Data Distribution](https://arxiv.org/abs/2310.16834), supporting Keyu Wang's presentation for the seminar ` Machine Learning Methods for Scientific Discovery` at the University of Tuebingen in 25ws.
 
 ## Installation
 
