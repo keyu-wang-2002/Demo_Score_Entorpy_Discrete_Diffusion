@@ -29,13 +29,21 @@ We can see that SEDD converges to the true ratio more efficiently and more robus
 
 After applying a single noise step to an original sentence, we find that a network trained with SEDD is able to reliably reconstruct a coherent sentence
 
-| Sample | One-Step Noise \(x_T\)        | One-Step Prediction \(\hat{x}_0\) |
-|--------|----------------------------|------------------------------------|
-| 0      | `You AI <pad> I`          | **You love NLP .**                 |
-| 1      | `NLP <pad> You .`         | **We love NLP .**                  |
-| 2      | `We . love love`          | **We love NLP .**                  |
-| 3      | `AI love We We`           | **We love AI .**                   |
-| 4      | `I love . We`             | **I love NLP .**                   |
+### Training-Time Denoising Log
+
+| Clean Sentence      | Noised Input            | Prediction        |
+|----------------------|--------------------------|--------------------|
+| We love NLP .        | We AI love You          | We love NLP .      |
+| We love NLP .        | We love You .           | We love NLP .      |
+| You love NLP .       | You . NLP .             | You love NLP .     |
+| I love AI .          | I love AI You           | I love AI .        |
+| You love NLP .       | <pad> love AI love      | I love AI .        |
+| I love NLP .         | We <pad> I .            | We love NLP .      |
+| I love AI .          | We love <pad> We        | We love AI .       |
+| I love AI .          | . love love I           | We love AI .       |
+| I love AI .          | love AI You .           | I love NLP .       |
+| You love AI .        | love NLP AI love        | We love AI .       |
+
 
 ## Demo for SEDD II: Generation from Fully Masked Inputs (`SEDD_miniDemo_2.ipynb`)
 
@@ -44,13 +52,33 @@ The vocabulary size is 9, with `MASK_ID = 8`.
 
 Despite receiving **no lexical information** from the input, the model learns to produce fluent, grammatical outputs that match the training distribution.
 
-| Sample | Input \(x_T\) | Predicted \( \hat{x}_0 \) |
-|--------|----------------|----------------------------|
-| 0 | `[MASK] [MASK] [MASK] [MASK]` | **I love NLP .** |
-| 1 | `[MASK] [MASK] [MASK] [MASK]` | **I love NLP .** |
-| 2 | `[MASK] [MASK] [MASK] [MASK]` | **I love NLP .** |
-| 3 | `[MASK] [MASK] [MASK] [MASK]` | **I love NLP .** |
-| 4 | `[MASK] [MASK] [MASK] [MASK]` | **I love NLP .** |
+Training-Time Denoising Log (Mask Noise)
+| Clean Sentence      | Noised Input                     | Prediction          |
+|----------------------|----------------------------------|----------------------|
+| We love NLP .        | [MASK] [MASK] [MASK] [MASK]      | I love NLP .         |
+| I love AI .          | [MASK] [MASK] [MASK] [MASK]      | We love NLP .        |
+| I love AI .          | [MASK] [MASK] [MASK] [MASK]      | You love NLP .       |
+| We love NLP .        | We love [MASK] [MASK]            | We love NLP .        |
+| We love AI .         | [MASK] [MASK] [MASK] .           | You love AI .        |
+| You love AI .        | [MASK] [MASK] [MASK] [MASK]      | We love AI .         |
+| You love AI .        | [MASK] [MASK] [MASK] [MASK]      | You love AI .        |
+| You love AI .        | You [MASK] AI [MASK]             | You love AI .        |
+| We love NLP .        | [MASK] [MASK] [MASK] [MASK]      | You love AI .        |
+| I love AI .          | [MASK] love AI [MASK]            | I love AI .          |
+
+FULL-MASK Generation
+| Input x_t                      | Prediction        |
+|--------------------------------|--------------------|
+| [MASK] [MASK] [MASK] [MASK]    | I love NLP .       |
+| [MASK] [MASK] [MASK] [MASK]    | We love NLP .      |
+| [MASK] [MASK] [MASK] [MASK]    | You love NLP .     |
+| [MASK] [MASK] [MASK] [MASK]    | I love NLP .       |
+| [MASK] [MASK] [MASK] [MASK]    | You love AI .      |
+| [MASK] [MASK] [MASK] [MASK]    | We love AI .       |
+| [MASK] [MASK] [MASK] [MASK]    | You love AI .      |
+| [MASK] [MASK] [MASK] [MASK]    | I love AI .        |
+| [MASK] [MASK] [MASK] [MASK]    | You love AI .      |
+| [MASK] [MASK] [MASK] [MASK]    | I love NLP .       |
 
 
 ## Other Recommend Resources
