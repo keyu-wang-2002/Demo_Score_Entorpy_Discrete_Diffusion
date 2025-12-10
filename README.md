@@ -22,7 +22,7 @@ The first column shows the target true ratio, while columns 2–7 display the le
 
 ![Gradient Comparison](figure/sedd_vs_csm.png)
 
-We can see that SEDD learns the true ratio more efficiently and more robustly.
+We can see that SEDD converges to the true ratio more efficiently and more robustly.
 
 
 ## Demo for SEDD I: One-Step Generation from One-Step Noise (`SEDD_miniDemo_1.ipynb`)
