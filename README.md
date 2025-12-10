@@ -80,7 +80,7 @@ FULL-MASK Generation
 | [MASK] [MASK] [MASK] [MASK]    | I love NLP .       |
 
 
-## Other Recommend Resources
+## Other Recommended Resources
 
 The original paper is not easy to follow, so I highly recommend to read the authors' blog first:
 [SEDD Blog](https://aaronlou.com/blog/2024/discrete-diffusion/)
