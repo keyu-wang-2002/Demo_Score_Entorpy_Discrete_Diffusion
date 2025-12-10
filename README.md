@@ -17,7 +17,7 @@ Concrete Score Matching (CSM) learns discrete scores using  $( s_\theta(x_t, t)_
 As noted in Score Entropy Discrete Diffusion (SEDD), the $\ell_2$ objective is incompatible with the requirement that $p_t(y)/p_t(x) > 0$. It does not strongly penalize zero or negative predictions, often causing unstable or divergent training. Thus, despite its theoretical appeal, CSM tends to struggle in practice.
 
 
-To address these limitations, SEDD introduces the **Score Entropy Loss** as a replacement for the MSE objective:  $s_\theta(x_t, t)_y$
+To address these limitations, SEDD introduces the **Score Entropy Loss** as a replacement for the MSE objective:  $s_\theta(x_t, t)_y - \frac{p_t(y)}{p_t(x)}$
 
 In `sedd_vs_csm.ipynb`, we compare the two loss functions side by side, and the results are shown below.  
 The top row corresponds to CSM and the bottom row to SEDD.  
