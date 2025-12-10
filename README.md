@@ -29,8 +29,7 @@ We can see that SEDD converges to the true ratio more efficiently and more robus
 
 After applying a single noise step to an original sentence, we find that a network trained with SEDD is able to reliably reconstruct a coherent sentence
 
-### Training-Time Denoising Log
-
+Training-Time Denoising Log
 | Clean Sentence      | Noised Input            | Prediction        |
 |----------------------|--------------------------|--------------------|
 | We love NLP .        | We AI love You          | We love NLP .      |
