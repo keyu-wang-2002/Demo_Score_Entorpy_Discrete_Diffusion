@@ -13,10 +13,9 @@ Or you can directly run these .ipynb files in Google Colab, without installing a
 
 ## Compare Score Entropy Loss with MSE Loss in Concrete Score Matching
 Concrete Score Matching (CSM) learns discrete scores using  
-\[
-\left( s_\theta(x_t, t)_y - \frac{p_t(y)}{p_t(x)} \right)^2 .
-\]
-As noted in Score Entropy Discrete Diffusion (SEDD), the ℓ2 objective is incompatible with the requirement that \(\frac{p_t(y)}{p_t(x)} > 0\). It does not strongly penalize zero or negative predictions, often causing unstable or divergent training. As a result, CSM, despite its theoretical elegance, tends to struggle in practice.
+$( s_\theta(x_t, t)_y - \frac{p_t(y)}{p_t(x)} )^2$.
+
+As noted in Score Entropy Discrete Diffusion (SEDD), the $\ell_2$ objective is incompatible with the requirement that $p_t(y)/p_t(x) > 0$. It does not strongly penalize zero or negative predictions, often causing unstable or divergent training. Thus, despite its theoretical appeal, CSM tends to struggle in practice.
 
 
 ![Gradient Comparison](figure/sedd_vs_csm.png)
