@@ -85,6 +85,6 @@ FULL-MASK Generation
 The original paper is not easy to follow, so I highly recommend to read the authors' blog first:
 [SEDD Blog](https://aaronlou.com/blog/2024/discrete-diffusion/)
 
-Another simple implementation of SEDD (but more complex than this repo cause this repo maybe the simplest):
+Another simple implementation of SEDD (but more complex than this repo. BTW this repo maybe the simplest):
 [SEDD Simple Implementation](https://github.com/emadyagh/Simple-Implementation-of-Score-Entropy-Discrete-Diffusion-SEDD-for-Text-Generation)
 
